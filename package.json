@@ -1,0 +1,41 @@
+{
+  "name": "vidyasetu",
+  "version": "1.0.0",
+  "description": "Secure MERN course enrollment",
+  "private": true,
+  "config": { "mongodbMemoryServer": { "disablePostinstall": true } },
+  "type": "module",
+  "engines": {
+    "node": ">=22.0"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n api,web \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "node --watch --env-file=.env server/index.js",
+    "dev:client": "vite --host 127.0.0.1",
+    "dev:demo": "concurrently -k -n api,web \"node server/demo.js\" \"npm:dev:client\"",
+    "build": "vite build",
+    "start": "node --env-file=.env server/index.js",
+    "test": "node --test --test-concurrency=1 server/test/*.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "argon2": "^0.45.1",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.3.0",
+    "helmet": "^8.3.0",
+    "mongodb": "^6.21.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.7.0",
+    "concurrently": "^10.0.6",
+    "mongodb-memory-server": "^11.3.0",
+    "supertest": "^7.3.1",
+    "vite": "^6.4.5"
+  }
+}
